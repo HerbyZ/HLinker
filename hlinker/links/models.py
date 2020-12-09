@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password):
         user = self.model(
@@ -51,3 +50,22 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+    class Meta:
+        app_label = 'links'
+
+
+class Link(models.Model):
+    name = models.CharField('name', max_length=50)
+    description = models.CharField('description', max_length=200)
+    parent_link = models.URLField('parent link', max_length=5000)
+    short_link = models.URLField('short link', max_length=20)
+    follow_count = models.IntegerField('follow count')
+    creation_date = models.DateTimeField('creation date', auto_now_add=True)
+    user = models.ForeignKey('links.User', on_delete=models.CASCADE, default=0)
+
+    def __str__(self):
+        return f'{self.name}: {self.short_link}'
+
+    class Meta:
+        app_label = 'links'

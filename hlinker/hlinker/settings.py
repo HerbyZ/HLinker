@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts.apps.AccountsConfig',
+    'links.apps.LinksConfig',
+    'django_sass',
 ]
 
 MIDDLEWARE = [
@@ -60,8 +61,6 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'accounts.User'
-
 WSGI_APPLICATION = 'hlinker.wsgi.application'
 
 
@@ -78,6 +77,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'links.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -113,7 +114,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [
     os.path.join(STATIC_ROOT, 'styles'),
 ]
