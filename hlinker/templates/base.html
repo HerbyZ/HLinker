@@ -4,11 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'master.scss' %}">
+    <title>{% block title %}HLinker{% endblock %}</title>
+    <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'master.css' %}">
     {% block links %}{% endblock %}
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">HLinker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'links:link_list' %}">My Links</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">New Link</a>
+                    </li>
+
+                    {% endif %}
+
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="{% url 'about' %}">About us</a>
+                    </li>
+
+                    {% if not user.is_authenticated %}
+
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="#">Sign up</a>
+                    </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         {% block content %}{% endblock %}
     </div>

@@ -60,7 +60,7 @@ class Link(models.Model):
     description = models.CharField('description', max_length=200)
     parent_link = models.URLField('parent link', max_length=5000)
     short_link = models.URLField('short link', max_length=20)
-    follow_count = models.IntegerField('follow count')
+    follow_count = models.IntegerField('follow count', default=0)
     creation_date = models.DateTimeField('creation date', auto_now_add=True)
     user = models.ForeignKey('links.User', on_delete=models.CASCADE, default=0)
 

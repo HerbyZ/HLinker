@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'links/list.css' %}">
+
+{% endblock %}
+{% block content %}
+
+    <div class="link-list">
+        <h1>Link list</h1>
+        {% if links %}
+
+            {% for link in links %}
+
+                <div class="link-list-item">
+                    <p class="follow-count">{{link.follow_count}}</p>
+                    <p class="mb-0">
+                        <strong>{{link.name}}</strong>
+                    </p>
+                    <p>{{link.description}}</p>
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <h2>You didn't create links yet.</h2>
+            <a href="#">Create your first?</a>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

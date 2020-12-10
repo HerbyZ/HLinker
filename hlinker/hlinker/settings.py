@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'links.apps.LinksConfig',
-    'django_sass',
 ]
 
 MIDDLEWARE = [
@@ -119,4 +118,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(STATIC_ROOT, 'styles'),
+    os.path.join(STATIC_ROOT, 'lib'),
 ]

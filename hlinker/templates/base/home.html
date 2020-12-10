@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block links %}
 
-	<link rel="stylesheet" href="{% static 'home.css' %}">
+	<link rel="stylesheet" href="{% static 'base/home.css' %}">
 
 {% endblock %}
 {% block content %}
 
     <div class="home">
-        <h1>Home page</h1>
+        
+        {% if user.is_authenticated %}
+
+            <div class="profile">
+                <h3>Glad to see you again, {{ user.username }}!</h3>
+            </div>
+            
+        {% else %}
+
+            <div class="main-block position-absolute top-50 start-50 translate-middle d-grid gap-2 col-6 mx-auto"">
+                <h1 class="text-center mb-2">HLinker</h1>
+                <h3 class="text-center">Link shortener by Herby.</h3>
+                <a class="btn btn-success btn-lg text-center mt-4" href="#">Sign up!</a>
+            </div>
+
+        {% endif %}
+
     </div>
 
 {% endblock %}

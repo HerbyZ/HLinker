@@ -1,0 +1,21 @@
+.main-block {
+    padding: 10% 10% 10% 10%;
+    width: 60%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(243, 243, 243);
+}
+
+.sign-up-button {
+    margin: 0 auto;
+}
+
+.profile {
+    padding: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .main-block {
+        width: 100%;
+    }
+}

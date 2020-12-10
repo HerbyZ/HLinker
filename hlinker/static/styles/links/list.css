@@ -1,0 +1,10 @@
+.link-list-item {
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding-right: 100px;
+}
+
+.follow-count {
+    float: right;
+    font-size: 4vh;
+}
