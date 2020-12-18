@@ -1,7 +1,18 @@
 from django.http.response import Http404, HttpResponseRedirect
 from django.shortcuts import render
 
-from .models import Link, User
+from .models import Link
+
+
+def link_view(request, link_url):
+    try:
+        link = Link.objects.get(short_link=link_url)
+    except Exception as e:
+        raise Http404('Link not found.')
+
+    link.follow_count += 1
+    link.save()
+    return HttpResponseRedirect(link.parent_link)
 
 
 def link_list_view(request):

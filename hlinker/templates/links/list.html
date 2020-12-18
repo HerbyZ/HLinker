@@ -31,6 +31,8 @@
                         <strong>{{link.name}}</strong>
                     </p>
                     <p>{{link.description}}</p>
+                    <p>{{link.parent_url}}</p>
+                    <a href="{% url 'links:link' link.short_link %}">{{link.short_link}}</a>
                 </div>
 
             {% endfor %}
