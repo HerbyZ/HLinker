@@ -7,8 +7,20 @@
 {% endblock %}
 {% block content %}
 
+    <!-- TODO: Sort -->
     <div class="link-list">
-        <h1>Link list</h1>
+        <div class="link-list-menu">
+            <h1 class="text-light">Link list</h1>
+            <div class="link-list-menu-filters">
+                <span class="filter-label">Sort:</span>
+                <div class="date-filter menu-filter">
+                    Date
+                </div>
+                <div class="follow-filter menu-filter">
+                    Follows
+                </div>
+            </div>
+        </div>
         {% if links %}
 
             {% for link in links %}

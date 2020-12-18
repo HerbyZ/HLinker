@@ -1,4 +1,4 @@
-from django.http.response import Http404
+from django.http.response import Http404, HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import Link, User
@@ -18,3 +18,27 @@ def link_list_view(request):
     return render(request, 'links/list.html', {
         'links': user_links
     })
+
+
+def create_link_page_view(request):
+    return render(request, 'links/new.html')
+
+
+def create_link_view(request):
+    if not request.user.is_authenticated:
+        raise Http404('You need to login to use this page.')
+
+    user = request.user
+    data = request.POST
+
+    if data['description'] == None:
+        pass
+    
+    user.link_set.create(
+        name=data['name'],
+        description=data['description'],
+        parent_link=data['parent_link'],
+        short_link='herby'
+    )
+
+    return HttpResponseRedirect('/links')

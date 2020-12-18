@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="create_link">
+    <form class="container" action="{% url 'links:create_link' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="name">Name your link</label>
+            <input id="name" class="form-control" type="text" name="name" placeholder="My Link">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="name">Name your link</label>
+            <input id="parent_link" class="form-control" type="text" name="parent_link" placeholder="https://www.youtube.com/">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <textarea id="name" class="form-control" name="description" placeholder="My awesome link!"></textarea>
+        </div>
+        <button id="submitNewLink" class="btn btn-primary btn-lg" type="submit" disabled>Create Link!</button>
+    </form>
+</div>
+
+{% block scripts %}
+
+    <script src="{% static 'new_link.js' %}"></script>
+
+{% endblock %}
+{% endblock %}

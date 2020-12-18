@@ -1,10 +1,16 @@
 html {
     scroll-behavior: smooth;
+    color: #fff;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: #000;
+}
+
+nav.navbar {
+	background: rgba(0, 0, 0, 0);
 }
 
 .nav-link-right {

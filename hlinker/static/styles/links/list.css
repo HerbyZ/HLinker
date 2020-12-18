@@ -1,7 +1,19 @@
-.link-list-item {
-    background-color: rgb(243, 243, 243);
-    border-radius: 10px;
-    padding-right: 100px;
+.link-list-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-list-menu-filters {
+    display: flex;
+    justify-content: start;
+}
+
+.menu-filter {
+    margin-right: 3px;
+}
+
+.filter-label {
+    margin-right: 5px;
 }
 
 .follow-count {

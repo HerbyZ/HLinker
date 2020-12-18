@@ -1,6 +1,6 @@
 # HLinker website repository
 
-This website is made for portfolio. \
+This website is made for portfolio.
 
 Technologies: Python Django, Bootstrap.
 
