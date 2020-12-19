@@ -33,6 +33,7 @@
                     <p>{{link.description}}</p>
                     <p>{{link.parent_url}}</p>
                     <a href="{% url 'links:link' link.short_link %}">{{link.short_link}}</a>
+                    <a href="{% url 'links:delete_link' link.short_link %}">Delete</a>
                 </div>
 
             {% endfor %}

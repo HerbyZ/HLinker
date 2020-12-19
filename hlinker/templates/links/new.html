@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="create_link">
-    <form class="container" action="{% url 'links:create_link' %}" method="POST">
+    <form action="{% url 'links:create_link' %}" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label" for="name">Name your link</label>

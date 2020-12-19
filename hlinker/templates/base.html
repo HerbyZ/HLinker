@@ -30,19 +30,25 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/links/new">New Link</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'links:new_link' %}">New Link</a>
                     </li>
 
-                    {% endif %}
+                    <lin class="nav-item">
+                        <a href="{% url 'links:logout' %}" class="nav-link">Sign out</a>
+                    </lin>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="{% url 'about' %}">About us</a>
+                    {% else %}
+                    
+                    <lin class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'about' %}">About</a>
+                    </lin>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'links:login_page' %}">Sign in</a>
                     </li>
 
-                    {% if not user.is_authenticated %}
-
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="#">Sign up</a>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'links:register_page' %}">Sign up</a>
                     </li>
 
                     {% endif %}
